@@ -7,6 +7,6 @@ import org.springframework.data.repository.query.Param;
 
 import com.generation.greengen.model.Categoria;
 
-public interface CategoriaRepository extends JpaRepository<Categoria, Long>{
-	 public List <Categoria> findAllNomeContainingIgnoreCase(@Param("nome")String nome); 
+public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
+	public List<Categoria> findAllByNomeContainingIgnoreCase(@Param("nome") String nome);
 }

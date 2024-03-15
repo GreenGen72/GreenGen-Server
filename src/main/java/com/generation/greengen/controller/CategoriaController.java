@@ -1,7 +1,6 @@
 package com.generation.greengen.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,9 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.server.ResponseStatusException;
 
 import com.generation.greengen.model.Categoria;
 import com.generation.greengen.repository.CategoriaRepository;
@@ -44,11 +41,30 @@ public class CategoriaController {
 
 	@GetMapping("/nome/{nome}")
 	public ResponseEntity<List<Categoria>> getByNome(@PathVariable String nome) {
-		return ResponseEntity.ok(categoriaRepository.findAllNomeContainingIgnoreCase(nome));
+		return ResponseEntity.ok(categoriaRepository.findAllByNomeContainingIgnoreCase(nome));
 	}
 
 	@PostMapping
 	public ResponseEntity<Categoria> post(@Valid @RequestBody Categoria categorias) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(categoriaRepository.save(categorias));
 	}
+
+	@PutMapping("/{id}")
+	public ResponseEntity<Categoria> atualizaCategoria(@PathVariable Long id, @Valid @RequestBody Categoria categoria) {
+		if (!categoriaRepository.existsById(id)) {
+			return ResponseEntity.notFound().build();
+		}
+		categoria.setId(id);
+		return ResponseEntity.ok(categoriaRepository.save(categoria));
+	}
+
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Void> deletaCategoria(@PathVariable Long id) {
+		if (!categoriaRepository.existsById(id)) {
+			return ResponseEntity.notFound().build();
+		}
+		categoriaRepository.deleteById(id);
+		return ResponseEntity.noContent().build();
+	}
+
 }
