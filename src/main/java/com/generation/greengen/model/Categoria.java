@@ -15,7 +15,7 @@ public class Categoria {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id_categorias;
+  private Long id;
 
   @NotBlank(message = "Obrigatório mínimo 5 e no máximo 255 caracteres")
   @Size(min = 5, max = 255)
@@ -25,12 +25,12 @@ public class Categoria {
   @Size(min = 5, max = 255)
   private String nome;
 
-  public Long getId_categorias() {
-    return this.id_categorias;
+  public Long getId() {
+    return this.id;
   }
 
-  public void setId_categorias(Long id_categorias) {
-    this.id_categorias = id_categorias;
+  public void setId(Long id) {
+    this.id = id;
   }
 
   public String getDescricao() {
@@ -46,7 +46,7 @@ public class Categoria {
   }
 
   public void setNome(String nome) {
-    this.nome = nome;
+    this.nome = nome;	
   }
 
 }
