@@ -34,10 +34,6 @@ public class Categoria {
 	private String nome;
 
 	
-//	@JsonIgnoreProperties("produto")
-//	@OneToMany precisa ser uma collection
-//	private Produto produto;
-	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "categoria", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("categoria")
 	private List<Produto> produto;
