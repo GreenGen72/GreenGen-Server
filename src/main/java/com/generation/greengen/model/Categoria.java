@@ -13,40 +13,40 @@ import jakarta.validation.constraints.Size;
 @Table(name = "tb_categoria")
 public class Categoria {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-  @NotBlank(message = "Obrigatório mínimo 5 e no máximo 255 caracteres")
-  @Size(min = 5, max = 255)
-  private String descricao;
+	@NotBlank(message = "Obrigatório mínimo 5 e no máximo 255 caracteres")
+	@Size(min = 5, max = 255)
+	private String descricao;
 
-  @NotBlank(message = "Obrigatório mínimo 5 e no máximo 255 caracteres")
-  @Size(min = 5, max = 255)
-  private String nome;
+	@NotBlank(message = "Obrigatório mínimo 5 e no máximo 255 caracteres")
+	@Size(min = 5, max = 255)
+	private String nome;
 
-  public Long getId() {
-    return this.id;
-  }
+	public Long getId() {
+		return this.id;
+	}
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-  public String getDescricao() {
-    return this.descricao;
-  }
+	public String getDescricao() {
+		return this.descricao;
+	}
 
-  public void setDescricao(String descricao) {
-    this.descricao = descricao;
-  }
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
 
-  public String getNome() {
-    return this.nome;
-  }
+	public String getNome() {
+		return this.nome;
+	}
 
-  public void setNome(String nome) {
-    this.nome = nome;	
-  }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
 }
