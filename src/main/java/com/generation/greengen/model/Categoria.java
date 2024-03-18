@@ -1,8 +1,12 @@
 package com.generation.greengen.model;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Table;
 
@@ -28,9 +32,14 @@ public class Categoria {
 	@Size(min = 5, max = 255)
 	private String nome;
 
+	
+//	@JsonIgnoreProperties("produto")
+//	@OneToMany precisa ser uma collection
+//	private Produto produto;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "categoria", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("produto")
-	@OneToMany
-	private Produto produto;
+	private List<Produto> produto;
 	
 	public Long getId() {
 		return this.id;
