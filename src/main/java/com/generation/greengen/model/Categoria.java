@@ -14,6 +14,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -38,31 +39,48 @@ public class Categoria {
 //	private Produto produto;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "categoria", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("produto")
+	@JsonIgnoreProperties("categoria")
 	private List<Produto> produto;
-	
+
+
 	public Long getId() {
-		return this.id;
+		return id;
 	}
+
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
+
 	public String getDescricao() {
-		return this.descricao;
+		return descricao;
 	}
+
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
 
+
 	public String getNome() {
-		return this.nome;
+		return nome;
 	}
+
 
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
+
+	public List<Produto> getProduto() {
+		return produto;
+	}
+
+
+	public void setProduto(List<Produto> produto) {
+		this.produto = produto;
+	}
+	
+	
 }
