@@ -1,11 +1,14 @@
 package com.generation.greengen.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Table;
 
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
@@ -25,6 +28,10 @@ public class Categoria {
 	@Size(min = 5, max = 255)
 	private String nome;
 
+	@JsonIgnoreProperties("produto")
+	@OneToMany
+	private Produto produto;
+	
 	public Long getId() {
 		return this.id;
 	}
