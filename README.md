@@ -17,7 +17,7 @@ Plataforma de e-commerce com gamificação para incentivo no consumo de produtos
 
  
 | Atributo   | Descrição e motivo da escolha       | Chave       |
-|:--------------|: --------------------------------------------------------------------------------------------------------------------------------------------------------|:-------|
+|:             |:                                  |:                                 |
 | `id`         | Campo destinado ao armazenamento do identificador único para cada produto no ecommerce. Utiliza o tipo `Long` para suportar um amplo intervalo de valores, facilitando a busca e identificação precisa de produtos.                               | PK    |
 | `nome`       | Campo para armazenar o nome do produto, essencial para a identificação e distinção entre produtos. O limite de 100 caracteres permite a inclusão de nomes descritivos sem comprometer a eficiência no armazenamento de dados.                       | NN    |
 | `descricao`  | Campo de texto destinado a detalhar informações sobre o produto, permitindo até 1000 caracteres. A capacidade extensa viabiliza descrições detalhadas, que abordam características e fornecem contexto adicional ao consumidor.                      | NN    |
