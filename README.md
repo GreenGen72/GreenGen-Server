@@ -3,13 +3,48 @@
 ## :memo: Descrição
 Plataforma de e-commerce com gamificação para incentivo no consumo de produtos renováveis.
 
-## :books: Funcionalidades
+##  <img align="center" src="https://i.imgur.com/OT1B2Qy.gif" width="28" height="28" style="margin-right: 8px;"> Funcionalidades
 :construction: <b>Em construção.</b> :construction:
 
 ## :wrench: Tecnologias utilizadas
-Java;
-Spring Boot;
-MySQL.
+- Java;
+- Spring Boot;
+- MySQL.
+
+## Tabela Produto
+
+<div align="left">
+
+| Atributo   | Descrição e motivo da escolha       | Chave       |
+| :---------- | :--------- | :---------------------------------- |
+| `id` long | Identificador único da tabela produto usado para busca de produtos dentro do ecommerce. | **PK** |
+| `nome` VARCHAR(100) | Identifica o nome do produto. | **NN** |
+| `descricao` VARCHAR(1000) | Identifica as características técnicas do produto. | **NN** |
+| `preco` BigDecimal | Armazena o preço do produto na plataforma. | **NN** |
+| `quantidade` Long | Armazena a quantidade do produto na plataforma. | **NN** |
+| `categoria_id` long | Usado para criar o relacionamento entre tabelas produto e categoria. | **FK** |
+</div>
+
+## Tabela Categoria
+
+<div align="left">
+
+| Atributo   | Descrição e motivo da escolha       | Chave       |
+| :---------- | :--------- | :---------------------------------- |
+| `id` Long | Identificador único da tabela categoria para buscar produtos pelo id da descrição. | **PK** |
+| `nome` VARCHAR(255) | Nome dado para categorizar produtos. | **NN** |
+| `descricao` VARCHAR(255) | Descrição um pouco mais detalhada sobre os produtos dessa categoria. | **NN** |
+
+</div>
+
+## <img align="center" src="https://i.imgur.com/YMtRdEm.gif" width="28" height="28"> Rodando o projeto
+
+Para rodar o projeto, é necessário cloná-lo, copie o código abaixo para rodar na sua IDE favorita:
+
+```
+git clone https://github.com/GreenGen72/GreenGen-Server.git
+```
+
 
 ## :soon: Implementação futura
 Adição das outras Classes models (Produtos e Usuários) e suas relações no banco de dados;
@@ -62,6 +97,14 @@ Adição das outras Classes models (Produtos e Usuários) e suas relações no b
         <img src="https://avatars.githubusercontent.com/u/157232091?v=4" width="100px;" alt="Foto de Tainá Poppi no GitHub"/><br>
         <sub>
           <b>Tainá Poppi</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/devgabrielnascimento">
+        <img src="https://avatars.githubusercontent.com/u/92201977?v=4" width="100px;" alt="Foto de Gabriel Nascimento no GitHub"/><br>
+        <sub>
+          <b>Gabriel Nascimento</b>
         </sub>
       </a>
     </td>
