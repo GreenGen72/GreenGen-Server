@@ -46,7 +46,7 @@ public class UsuarioController {
                 .map(resposta -> ResponseEntity.ok(resposta))
                 .orElse(ResponseEntity.notFound().build());
     }
-
+// FIXME falta o @ valid (conferir na doc)
     @PostMapping("/logar")
     public ResponseEntity<UsuarioLogin> autenticarUsuario(@RequestBody Optional<UsuarioLogin> usuarioLogin){
 

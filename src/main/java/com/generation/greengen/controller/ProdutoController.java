@@ -22,7 +22,7 @@ import com.generation.greengen.model.Produto;
 import com.generation.greengen.repository.ProdutoRepository;
 
 import jakarta.validation.Valid;
-
+// REVIEW definir singular ou plural pra rotas 
 @RestController
 @RequestMapping("/produtos")
 @CrossOrigin(origins = "*", allowedHeaders = "*")

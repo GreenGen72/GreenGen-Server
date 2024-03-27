@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.generation.greengen.model.Usuario;
-
+// FIXME falta a notation de repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
 
     public Optional<Usuario> findByUsuario(String usuario);

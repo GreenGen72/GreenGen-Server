@@ -20,6 +20,7 @@ import com.generation.greengen.repository.CategoriaRepository;
 
 import jakarta.validation.Valid;
 
+// TODO definir singular ou plural nos endpoints das rotas.
 @RestController
 @RequestMapping("/categoria")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -48,6 +49,7 @@ public class CategoriaController {
 	public ResponseEntity<Categoria> post(@Valid @RequestBody Categoria categorias) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(categoriaRepository.save(categorias));
 	}
+// REVIEW nao precisa passar id na rota deixar igual o do usuario controller 
 
 	@PutMapping("/{id}")
 	public ResponseEntity<Categoria> atualizaCategoria(@PathVariable Long id, @Valid @RequestBody Categoria categoria) {
@@ -57,7 +59,7 @@ public class CategoriaController {
 		categoria.setId(id);
 		return ResponseEntity.ok(categoriaRepository.save(categoria));
 	}
-
+// REVIEW faltou uma notacao aqui tion(HttpStatus.NOT_FOUND);
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> deletaCategoria(@PathVariable Long id) {
 		if (!categoriaRepository.existsById(id)) {

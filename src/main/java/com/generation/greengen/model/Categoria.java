@@ -33,21 +33,19 @@ public class Categoria {
 	@Size(min = 5, max = 255)
 	private String nome;
 
-	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "categoria", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("categoria")
 	private List<Produto> produto;
 
-
 	public Long getId() {
 		return id;
 	}
+// REVIEW arrumar indentacao e espacamentos que tao duas linhas aqui 
 
 
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 
 	public String getDescricao() {
 		return descricao;

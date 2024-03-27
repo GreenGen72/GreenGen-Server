@@ -31,7 +31,8 @@ public class Usuario {
 	@NotNull(message = "O Atributo Usuário é Obrigatório!")
 	@Email(message = "O Atributo Usuário deve ser um email válido!")
 	private String usuario;
-
+	// REVIEW DEFINIR PADRAO DE NotBlank OU NotNull Mudar notblank da senha para notnull e deixar esse padrão para o tipo String
+	
 	@NotBlank(message = "O Atributo Senha é Obrigatório!")
 	@Size(min = 8, message = "A Senha deve ter no mínimo 8 caracteres")
 	private String senha;

@@ -38,7 +38,9 @@ public class Produto {
 	@NotNull(message = "O atributo preço é Obrigatório!")
 	private BigDecimal preco;
 
+	// FIXME notação para não ser negativo o número em quantidade no model de Produto
 	private Long quantidade;
+	
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
 	private Categoria categoria;
