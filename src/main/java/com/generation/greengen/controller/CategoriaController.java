@@ -50,7 +50,8 @@ public class CategoriaController {
 		return ResponseEntity.ok(categoriaRepository.save(categoria));
 	}
 
-	@ResponseStatus(HttpStatus.NOT_FOUND);
+	
+	@ResponseStatus(HttpStatus.NOT_FOUND)
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> deletaCategoria(@PathVariable Long id) {
 		if (!categoriaRepository.existsById(id)) {
