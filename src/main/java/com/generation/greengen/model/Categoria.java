@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -23,14 +24,17 @@ public class Categoria {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Schema(description = "Identificador único para cada categoria no ecommerce. ", example = "1", required = true)
 	private Long id;
 
 	@NotBlank(message = "Obrigatório mínimo 5 e no máximo 255 caracteres")
 	@Size(min = 5, max = 255)
+	@Schema(description = "Armazena a descrição de cada categoria. ", example = "Aproveite ao máximo a energia do sol para iluminar seus ambientes com nossa vasta seleção de produtos de iluminação solar. ", required = true)
 	private String descricao;
 
 	@NotBlank(message = "Obrigatório mínimo 5 e no máximo 255 caracteres")
 	@Size(min = 5, max = 255)
+	@Schema(description = "Campo destinado ao armazenamento do nome dado para a categoria dos produtos.", example = "Energia solar", required = true)
 	private String nome;
 
 	
