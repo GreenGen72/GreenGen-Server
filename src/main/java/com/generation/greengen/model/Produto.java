@@ -25,11 +25,11 @@ public class Produto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@NotBlank(message = "O atributo produto é obrigatorio!")
+	@NotNull(message = "O atributo produto é obrigatorio!")
 	@Size(min = 5, max = 100, message = "o atributo produto deve conter no minimo 05 e no máximo 100 caracteres")
 	private String nome;
 
-	@NotBlank(message = "O atributo descrição é obrigatorio!")
+	@NotNull(message = "O atributo descrição é obrigatorio!")
 	@Size(min = 10, max = 1000, message = "o atributo descrição deve conter no minimo 10 e no máximo 1000 caracteres")
 	private String descricao;
 
@@ -38,16 +38,16 @@ public class Produto {
 	@NotNull(message = "O atributo preço é Obrigatório!")
 	private BigDecimal preco;
 
-	// FIXME notação para não ser negativo o número em quantidade no model de Produto
+	@Positive(message = "O atributo preço deve ser maior do que zero")
 	private Long quantidade;
-	
+
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
 	private Categoria categoria;
 
 	@ManyToOne
-	@JsonIgnoreProperties ("produto")
-	private  Usuario usuario;
+	@JsonIgnoreProperties("produto")
+	private Usuario usuario;
 
 	public long getId() {
 		return id;

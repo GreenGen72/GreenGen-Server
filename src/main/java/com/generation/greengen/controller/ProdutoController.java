@@ -22,9 +22,9 @@ import com.generation.greengen.model.Produto;
 import com.generation.greengen.repository.ProdutoRepository;
 
 import jakarta.validation.Valid;
-// REVIEW definir singular ou plural pra rotas 
+
 @RestController
-@RequestMapping("/produtos")
+@RequestMapping("/produto")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ProdutoController {
 
@@ -49,15 +49,13 @@ public class ProdutoController {
 
 	@PostMapping
 	public ResponseEntity<Produto> post(@Valid @RequestBody Produto produto) {
-		return ResponseEntity.status(HttpStatus.CREATED)
-				.body(produtoRepository.save(produto));
+		return ResponseEntity.status(HttpStatus.CREATED).body(produtoRepository.save(produto));
 	}
 
 	@PutMapping
 	public ResponseEntity<Produto> editarProduto(@Valid @RequestBody Produto produtoAtualizado) {
 		return produtoRepository.findById(produtoAtualizado.getId())
-				.map(response -> ResponseEntity.status(HttpStatus.OK)
-						.body(produtoRepository.save(produtoAtualizado)))
+				.map(response -> ResponseEntity.status(HttpStatus.OK).body(produtoRepository.save(produtoAtualizado)))
 				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
 

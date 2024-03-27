@@ -18,7 +18,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name = "tb_usuarios")
+@Table(name = "tb_usuario")
 public class Usuario {
 
 	@Id
@@ -31,9 +31,8 @@ public class Usuario {
 	@NotNull(message = "O Atributo Usuário é Obrigatório!")
 	@Email(message = "O Atributo Usuário deve ser um email válido!")
 	private String usuario;
-	// REVIEW DEFINIR PADRAO DE NotBlank OU NotNull Mudar notblank da senha para notnull e deixar esse padrão para o tipo String
-	
-	@NotBlank(message = "O Atributo Senha é Obrigatório!")
+
+	@NotNull(message = "O Atributo Senha é Obrigatório!")
 	@Size(min = 8, message = "A Senha deve ter no mínimo 8 caracteres")
 	private String senha;
 
@@ -42,7 +41,7 @@ public class Usuario {
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
-	private List<Produto> produtos ;
+	private List<Produto> produtos;
 
 	public Long getId() {
 		return id;

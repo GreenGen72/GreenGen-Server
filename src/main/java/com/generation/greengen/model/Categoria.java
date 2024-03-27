@@ -25,11 +25,11 @@ public class Categoria {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@NotBlank(message = "Obrigatório mínimo 5 e no máximo 255 caracteres")
+	@NotNull(message = "Obrigatório mínimo 5 e no máximo 255 caracteres")
 	@Size(min = 5, max = 255)
 	private String descricao;
 
-	@NotBlank(message = "Obrigatório mínimo 5 e no máximo 255 caracteres")
+	@NotNull(message = "Obrigatório mínimo 5 e no máximo 255 caracteres")
 	@Size(min = 5, max = 255)
 	private String nome;
 
@@ -40,8 +40,6 @@ public class Categoria {
 	public Long getId() {
 		return id;
 	}
-// REVIEW arrumar indentacao e espacamentos que tao duas linhas aqui 
-
 
 	public void setId(Long id) {
 		this.id = id;
@@ -51,30 +49,24 @@ public class Categoria {
 		return descricao;
 	}
 
-
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-
 
 	public String getNome() {
 		return nome;
 	}
 
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
 
 	public List<Produto> getProduto() {
 		return produto;
 	}
 
-
 	public void setProduto(List<Produto> produto) {
 		this.produto = produto;
 	}
-	
-	
+
 }
