@@ -62,7 +62,7 @@ git clone https://github.com/GreenGen72/GreenGen-Server.git
 
 
 ## :soon: Implementação futura
-Adição das outras Classes models (Produtos e Usuários) e suas relações no banco de dados;
++ Estabelecer uma conexão robusta entre os sistemas backend e frontend, assegurando uma comunicação fluida e eficiente entre ambas as partes, garantindo assim uma experiência integrada e consistente para os usuários.
 
 ## :handshake: Colaboradores
 <table>
