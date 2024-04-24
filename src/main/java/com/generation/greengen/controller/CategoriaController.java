@@ -50,13 +50,13 @@ public class CategoriaController {
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<Categoria> atualizaCategoria(@PathVariable Long id, @Valid @RequestBody Categoria categoria) {
-		if (!categoriaRepository.existsById(id)) {
-			return ResponseEntity.notFound().build();
-		}
-		categoria.setId(id);
-		return ResponseEntity.ok(categoriaRepository.save(categoria));
-	}
+    public ResponseEntityCategoria atualizaCategoria(@PathVariable Long id, @Valid @RequestBody Categoria categoria) {
+        if (!categoriaRepository.existsById(id)) {
+            return ResponseEntity.notFound().build();
+        }
+        categoria.setId(id);
+        return ResponseEntity.ok(categoriaRepository.save(categoria));
+    }
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> deletaCategoria(@PathVariable Long id) {
