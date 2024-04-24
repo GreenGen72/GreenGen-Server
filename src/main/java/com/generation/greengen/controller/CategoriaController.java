@@ -41,15 +41,14 @@ public class CategoriaController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(categoriaRepository.save(categorias));
 	}
 
-	@PutMapping("/atualizar")
-	public ResponseEntity<Categoria> atualizaCategoria(@PathVariable Long id, @Valid @RequestBody Categoria categoria) {
-		if (!categoriaRepository.existsById(id)) {
-			return ResponseEntity.notFound().build();
-		}
-		categoria.setId(id);
-		return ResponseEntity.ok(categoriaRepository.save(categoria));
-	}
-
+	@PutMapping("/{id}")
+    public ResponseEntity<Categoria>  atualizaCategoria(@PathVariable Long id, @Valid @RequestBody Categoria categoria) {
+        if (!categoriaRepository.existsById(id)) {
+            return ResponseEntity.notFound().build();
+        }
+        categoria.setId(id);
+        return ResponseEntity.ok(categoriaRepository.save(categoria));
+    }
 	
 	@ResponseStatus(HttpStatus.NOT_FOUND)
 	@DeleteMapping("/{id}")
