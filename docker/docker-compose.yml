@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: db_green_gen
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
