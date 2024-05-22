@@ -37,6 +37,10 @@ public class Categoria {
 	@Schema(description = "Campo destinado ao armazenamento do nome dado para a categoria dos produtos.", example = "Energia solar", required = true)
 	private String nome;
 
+	@Size(min = 5, max = 5000)
+	@Schema(description = "Campo destinado ao armazenamento do url que guarda a foto da categoria dos produtos.", example = "https://images.tcdn.com.br/img/img_prod0f2.jpg", required = true)
+	private String foto;
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "categoria", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("categoria")
 	private List<Produto> produto;
@@ -64,6 +68,10 @@ public class Categoria {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
+	public String getFoto() {return foto;}
+
+	public void setFoto(String foto) {this.foto = foto;	}
 
 	public List<Produto> getProduto() {
 		return produto;
