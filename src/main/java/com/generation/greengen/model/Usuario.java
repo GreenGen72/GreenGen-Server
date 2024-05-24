@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -18,30 +19,35 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name = "tb_usuarios")
+@Table(name = "tb_usuario")
 public class Usuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Schema(description = "Identificador único para cada Usuário no ecommerce. ", example = "1", required = true)
 	private Long id;
 
 	@NotNull(message = "O Atributo Nome é Obrigatório!")
+	@Schema(description = "Armazena o nome do usuário.", example = "John Doe", required = true)
 	private String nome;
-
+	
 	@NotNull(message = "O Atributo Usuário é Obrigatório!")
 	@Email(message = "O Atributo Usuário deve ser um email válido!")
+	@Schema(description = "Armazena o e-mail de acesso do usuário.", example = "john.doe@example.com", required = true)
 	private String usuario;
 
-	@NotBlank(message = "O Atributo Senha é Obrigatório!")
+	@NotNull(message = "O Atributo Senha é Obrigatório!")
 	@Size(min = 8, message = "A Senha deve ter no mínimo 8 caracteres")
+	@Schema(description = "Armazena a senha do usuário.", example = "secret", required = true)
 	private String senha;
 
 	@Size(max = 5000, message = "O link da foto não pode ser maior do que 5000 caracteres")
+	@Schema(description = "Armazena a foto do usuario a partir da URL. ", example = "http://example.com/photo.jpg")
 	private String foto;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
-	private List<Produto> produtos ;
+	private List<Produto> produtos;
 
 	public Long getId() {
 		return id;
