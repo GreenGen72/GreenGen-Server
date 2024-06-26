@@ -46,6 +46,10 @@ public class Produto {
 	@Schema(description = "Armazena a quantidade deste produto no estoque ", example = "1", required = true)
 	private Long quantidade;
 
+	@Size(max = 5000, message = "O link da foto não pode ser maior do que 5000 caracteres")
+	@Schema(description = "Armazena a foto do produto a partir da URL. ", example = "http://example.com/photo.jpg")
+	private String foto;
+	
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
 	private Categoria categoria;
@@ -86,8 +90,17 @@ public class Produto {
 		this.preco = preco;
 	}
 
+	
 	public Long getQuantidade() {
 		return quantidade;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
 
 	public void setQuantidade(Long quantidade) {
